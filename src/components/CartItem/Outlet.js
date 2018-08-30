@@ -7,9 +7,6 @@ class CartItem extends Component {
     this.state = {
       quantity: this.props.quantity,
       price: this.props.price,
-      constPrice: (quantity, price) => {
-        return price / quantity;
-      },
       itemTotal: 0
     };
     // Binders
@@ -46,13 +43,9 @@ class CartItem extends Component {
           ""
         ) : (
           <div className="cart-item">
-            <img
-              src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/lg/57/banana_1f34c.png"
-              alt=""
-              className="cart-img"
-            />
+            <img src={this.props.img} alt="" className="cart-img" />
             <div className="item-details">
-              <div className="item-name">Banana</div>
+              <div className="item-name">{this.props.name}</div>
               <div className="item-decs">$ {this.state.price}</div>
             </div>
             <div className="counters">
