@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*background: hsl(0, 0%, 45%);*/
+  /*Casprine plese use nicer colours*/
+  background: black;
+  color: white;
+  padding: 10px;
+}
+
+.close-button,
+.link {
+  outline: 1px solid red;
+  background: transparent;
+}
+/* added by Michael for the correct positioning of nav items */
+.heading {
+  margin-left: 11px;
+}
+.close-button {
+  margin-left: 5px;
+}
+.link {
+  margin-right: 3px;
+}

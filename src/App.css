@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+* {
+  margin: 0;
+  font-family: "Poppins";
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  height: 100vh;
+  color: hsl(0, 0%, 45%);
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  color: white;
+}
