@@ -7,7 +7,8 @@ class CartItem extends Component {
     this.state = {
       quantity: this.props.quantity,
       price: this.props.price,
-      itemTotal: 0
+      itemTotal: 0,
+      totalPrice: 0
     };
     // Binders
     this.increase = this.increase.bind(this);
@@ -17,7 +18,7 @@ class CartItem extends Component {
   increase() {
     const newquantity = this.state.quantity + 1;
     const itemTotal = newquantity * this.state.price;
-    console.log(itemTotal);
+
     this.setState({
       quantity: newquantity,
       itemTotal: itemTotal

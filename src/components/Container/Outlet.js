@@ -5,11 +5,11 @@ import CartItem from "../CartItem/Outlet";
 import "./style.css";
 
 class Container extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-  componentDidMount() {}
   render() {
     const products = [
       {
@@ -45,6 +45,7 @@ class Container extends Component {
         price: 8
       }
     ];
+
     return (
       <div className="container">
         <Header />
@@ -53,6 +54,8 @@ class Container extends Component {
             <CartItem {...item} key={item.id} />
           ))}
         </div>
+
+        <div className="total-price">Total price = {this.state.totalPrice}</div>
       </div>
     );
   }
