@@ -15,7 +15,7 @@ class Container extends Component {
       {
         id: 1,
         quantity: 2,
-        price: 12
+        price: 3
       },
       {
         id: 2,
@@ -31,12 +31,12 @@ class Container extends Component {
       {
         id: 4,
         quantity: 2,
-        price: 7
+        price: 8
       },
       {
         id: 5,
         quantity: 1,
-        price: 11
+        price: 12
       }
     ];
     return (

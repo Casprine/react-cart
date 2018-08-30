@@ -7,7 +7,10 @@ class CartItem extends Component {
     this.state = {
       quantity: this.props.quantity,
       price: this.props.price,
-      constPrice: this.props.price
+      constPrice: (quantity, price) => {
+        return price / quantity;
+      },
+      itemTotal: 0
     };
     // Binders
     this.increase = this.increase.bind(this);
@@ -15,24 +18,27 @@ class CartItem extends Component {
   }
 
   increase() {
-    const newquantity = Number(this.state.quantity) + 1;
-    const newprice =
-      Math.round(this.state.constPrice * newquantity * 100) / 100;
-    this.setState({ quantity: newquantity, price: newprice });
+    const newquantity = this.state.quantity + 1;
+    const itemTotal = newquantity * this.state.price;
+    console.log(itemTotal);
+    this.setState({
+      quantity: newquantity,
+      itemTotal: itemTotal
+    });
   }
+
   decrease() {
-    const oldquantity = this.state.quantity - 1;
-    const oldprice = this.state.price - this.state.constPrice;
-    console.log(oldprice);
-    this.setState({ quantity: oldquantity, price: oldprice });
-    if (oldprice <= 0) {
-    }
+    const newQuantity = this.state.quantity - 1;
+    const itemTotal = this.state.price * newQuantity;
+    console.log(itemTotal);
+    this.setState({ quantity: newQuantity, itemTotal: itemTotal });
   }
 
-  perone(currentPrice, quantity) {
-    return currentPrice / quantity;
+  componentDidMount() {
+    this.setState({
+      itemTotal: this.state.quantity * this.state.price
+    });
   }
-
   render() {
     return (
       <div className="cart-item">
@@ -43,9 +49,7 @@ class CartItem extends Component {
         />
         <div className="item-details">
           <div className="item-name">Banana</div>
-          <div className="item-decs">
-            {this.perone(this.state.price, this.state.quantity)}
-          </div>
+          <div className="item-decs">$ {this.state.price}</div>
         </div>
         <div className="counters">
           <button className="down" onClick={this.decrease}>
@@ -56,7 +60,7 @@ class CartItem extends Component {
             +
           </button>
         </div>
-        <div className="price">$ {this.state.price}</div>
+        <div className="price">$ {this.state.itemTotal}</div>
 
         <div className="total">{this.state.total}</div>
         {/* <button className="close"> X </button> */}
