@@ -41,29 +41,36 @@ class CartItem extends Component {
   }
   render() {
     return (
-      <div className="cart-item">
-        <img
-          src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/lg/57/banana_1f34c.png"
-          alt=""
-          className="cart-img"
-        />
-        <div className="item-details">
-          <div className="item-name">Banana</div>
-          <div className="item-decs">$ {this.state.price}</div>
-        </div>
-        <div className="counters">
-          <button className="down" onClick={this.decrease}>
-            -
-          </button>
-          <div className="amount"> {this.state.quantity} </div>
-          <button className="up" onClick={this.increase}>
-            +
-          </button>
-        </div>
-        <div className="price">$ {this.state.itemTotal}</div>
+      <div>
+        {this.state.quantity === 0 ? (
+          ""
+        ) : (
+          <div className="cart-item">
+            <img
+              src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/lg/57/banana_1f34c.png"
+              alt=""
+              className="cart-img"
+            />
+            <div className="item-details">
+              <div className="item-name">Banana</div>
+              <div className="item-decs">$ {this.state.price}</div>
+            </div>
+            <div className="counters">
+              <button className="down" onClick={this.decrease}>
+                -
+              </button>
 
-        <div className="total">{this.state.total}</div>
-        {/* <button className="close"> X </button> */}
+              <div className="amount"> {this.state.quantity} </div>
+              <button className="up" onClick={this.increase}>
+                +
+              </button>
+            </div>
+            <div className="price">$ {this.state.itemTotal}</div>
+
+            <div className="total">{this.state.total}</div>
+            {/* <button className="close"> X </button> */}
+          </div>
+        )}
       </div>
     );
   }
