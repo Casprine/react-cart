@@ -37,6 +37,10 @@
   outline: 1px solid red;
 } */
 
+.close {
+  outline: 1px solid red;
+  margin-left: 20px;
+}
 /*This code below was added by Michael*/
 .down {
   margin-left: 10px;

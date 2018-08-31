@@ -13,6 +13,7 @@ class CartItem extends Component {
     // Binders
     this.increase = this.increase.bind(this);
     this.decrease = this.decrease.bind(this);
+    this.remove = this.remove.bind(this);
   }
 
   increase() {
@@ -30,6 +31,14 @@ class CartItem extends Component {
     const itemTotal = this.state.price * newQuantity;
     console.log(itemTotal);
     this.setState({ quantity: newQuantity, itemTotal: itemTotal });
+  }
+
+  remove() {
+    const zero = 0;
+    this.setState({
+      quantity: zero
+    });
+    console.log(zero);
   }
 
   componentDidMount() {
@@ -62,7 +71,9 @@ class CartItem extends Component {
             <div className="price">$ {this.state.itemTotal}</div>
 
             <div className="total">{this.state.total}</div>
-            {/* <button className="close"> X </button> */}
+            <button className="close" onClick={this.remove}>
+              X
+            </button>
           </div>
         )}
       </div>
