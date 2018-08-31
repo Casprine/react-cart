@@ -54,7 +54,6 @@ class Container extends Component {
             <CartItem {...item} key={item.id} />
           ))}
         </div>
-
         <div className="total-price">Total price = {this.state.totalPrice}</div>
       </div>
     );
