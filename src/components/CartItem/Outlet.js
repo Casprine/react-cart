@@ -5,10 +5,9 @@ class CartItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quantity: this.props.quantity,
+      quantity: 1,
       price: this.props.price,
-      itemTotal: 0,
-      totalPrice: 0
+      itemTotal: 0
     };
     // Binders
     this.increase = this.increase.bind(this);
@@ -20,24 +19,37 @@ class CartItem extends Component {
     const newquantity = this.state.quantity + 1;
     const itemTotal = newquantity * this.state.price;
 
-    this.setState({
-      quantity: newquantity,
-      itemTotal: itemTotal
-    });
+    this.setState(
+      {
+        quantity: newquantity,
+        itemTotal: itemTotal
+      },
+      () => {
+        this.props.computePrice(this.state.price);
+      }
+    );
   }
 
   decrease() {
     const newQuantity = this.state.quantity - 1;
     const itemTotal = this.state.price * newQuantity;
-    console.log(itemTotal);
-    this.setState({ quantity: newQuantity, itemTotal: itemTotal });
+    this.setState({ quantity: newQuantity, itemTotal: itemTotal }, () => {
+      const substract = -this.state.price;
+      this.props.computePrice(substract);
+    });
   }
 
   remove() {
     const zero = 0;
-    this.setState({
-      quantity: zero
-    });
+    this.setState(
+      {
+        quantity: zero
+      },
+      () => {
+        const substractItem = -this.state.itemTotal;
+        this.props.computePrice(substractItem);
+      }
+    );
   }
 
   componentDidMount() {
