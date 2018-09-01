@@ -15,7 +15,7 @@ class Container extends Component {
     this.casprine = this.casprine.bind(this);
   }
 
-  componentDidCatch() {}
+  componentDidMount() {}
   casprine(casprine) {
     this.setState(
       {
