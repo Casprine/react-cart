@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "../Header/Outlet";
 import CartItem from "../CartItem/Outlet";
+import CheckoutButton from "../CheckoutButton/Outlet";
 // Import components
 import "./style.css";
 
@@ -39,11 +40,9 @@ class Container extends Component {
         </div>
 
         {this.state.totalPrice === 0 ? (
-          "You have no items in the cart"
+          ""
         ) : (
-          <div className="total-price">
-            Total price = {this.state.totalPrice}
-          </div>
+          <CheckoutButton totalPrice={this.state.totalPrice} />
         )}
       </div>
     );
