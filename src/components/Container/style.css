@@ -2,9 +2,6 @@
   width: 320px;
   height: 600px;
   border: 1px solid hsl(0, 0%, 45%);
-}
-
-.total-price {
-  outline: 1px solid red;
-  padding: 10px;
+  display: flex;
+  flex-flow: column;
 }
