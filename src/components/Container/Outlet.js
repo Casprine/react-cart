@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "../Header/Outlet";
 import CartItem from "../CartItem/Outlet";
+import CartContainer from "../CartContianer/Outlet";
 import CheckoutButton from "../CheckoutButton/Outlet";
 // Import components
 import "./style.css";
@@ -29,18 +30,10 @@ class Container extends Component {
     return (
       <div className="container">
         <Header />
-        <div className="cartContainer">
-          {this.state.products.map(item => (
-            <CartItem
-              {...item}
-              key={item.id}
-              computePrice={this.totalPriceCal}
-            />
-          ))}
-        </div>
+        <CartContainer products={this.state.products} />
 
         {this.state.totalPrice === 0 ? (
-          ""
+          "You have no item in your cart"
         ) : (
           <CheckoutButton totalPrice={this.state.totalPrice} />
         )}
