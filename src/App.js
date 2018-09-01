@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Container from "./components/Container/Outlet";
+import Container from "./components/Container/Outlet.jsx";
 import "./App.css";
 
 class App extends Component {
@@ -12,7 +12,6 @@ class App extends Component {
           name: "Mango",
           img:
             "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/emojipedia/132/mango_1f96d.png",
-          // quantity: 2,
           price: 3
         },
         {
@@ -20,7 +19,6 @@ class App extends Component {
           name: "Orange",
           img:
             "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/129/tangerine_1f34a.png",
-          // quantity: 3,
           price: 6
         },
         {
@@ -28,7 +26,6 @@ class App extends Component {
           name: "Meat",
           img:
             " https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/129/cut-of-meat_1f969.png",
-          // quantity: 3,
           price: 6
         },
         {
@@ -36,7 +33,6 @@ class App extends Component {
           name: "Bread",
           img:
             "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/facebook/65/bread_1f35e.png",
-          // quantity: 2,
           price: 8
         }
       ]

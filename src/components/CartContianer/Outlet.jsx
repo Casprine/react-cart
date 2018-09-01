@@ -20,12 +20,12 @@ class CartContainer extends Component {
   totalPriceCal(newPrice) {
     const computedPrice = newPrice + this.state.totalPrice;
     this.setState({ totalPrice: computedPrice }, () => {
-      this.props.casprine(computedPrice);
+      this.props.totalPrice(computedPrice);
     });
   }
   componentDidMount() {
     const firstT = this.state.totalPrice;
-    this.props.casprine(firstT);
+    this.props.totalPrice(firstT);
   }
 
   render() {

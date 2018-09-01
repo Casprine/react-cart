@@ -11,7 +11,6 @@
 
 .close-button,
 .link {
-  outline: 1px solid red;
   background: transparent;
 }
 /* added by Michael for the correct positioning of nav items */
