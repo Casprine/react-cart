@@ -1,9 +1,9 @@
 import React from "react";
-
+import "./style.css";
 const ErrorHandler = props => {
   return (
     <div className="ErrorHandler">
-      <span>{props.message}</span>
+      <span className="error">{props.message}</span>
     </div>
   );
 };

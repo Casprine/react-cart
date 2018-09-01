@@ -1,0 +1,13 @@
+.ErrorHandler {
+  outline: 1px solid red;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error {
+  outline: 1px solid red;
+  width: 100%;
+  text-align: center;
+}

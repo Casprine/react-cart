@@ -18,4 +18,5 @@ button {
   cursor: pointer;
   border: 0;
   color: white;
+  outline: none;
 }
