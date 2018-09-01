@@ -25,8 +25,6 @@ class CartItem extends Component {
         itemTotal: itemTotal
       },
       () => {
-        console.log("working");
-
         this.props.computePrice(this.state.price);
       }
     );
@@ -38,7 +36,6 @@ class CartItem extends Component {
     this.setState({ quantity: newQuantity, itemTotal: itemTotal }, () => {
       const substract = -this.state.price;
       this.props.computePrice(substract);
-      console.log("working");
     });
   }
 
@@ -51,7 +48,6 @@ class CartItem extends Component {
       () => {
         const substractItem = -this.state.itemTotal;
         this.props.computePrice(substractItem);
-        console.log("working");
       }
     );
   }

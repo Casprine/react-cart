@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 import "./style.css";
-const CheckoutButton = ({ totalPrice }) => {
+const CheckoutButton = props => {
   return (
     <Fragment>
-      <button> {totalPrice} </button>
+      <button> {props.totalPrice} </button>
     </Fragment>
   );
 };
