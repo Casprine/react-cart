@@ -27,7 +27,7 @@ class CartItem extends Component {
       () => {
         console.log("working");
 
-        // this.props.computePrice(this.state.price);
+        this.props.computePrice(this.state.price);
       }
     );
   }
@@ -36,8 +36,8 @@ class CartItem extends Component {
     const newQuantity = this.state.quantity - 1;
     const itemTotal = this.state.price * newQuantity;
     this.setState({ quantity: newQuantity, itemTotal: itemTotal }, () => {
-      // const substract = -this.state.price;
-      // this.props.computePrice(substract);
+      const substract = -this.state.price;
+      this.props.computePrice(substract);
       console.log("working");
     });
   }
@@ -49,8 +49,8 @@ class CartItem extends Component {
         quantity: zero
       },
       () => {
-        // const substractItem = -this.state.itemTotal;
-        // this.props.computePrice(substractItem);
+        const substractItem = -this.state.itemTotal;
+        this.props.computePrice(substractItem);
         console.log("working");
       }
     );
