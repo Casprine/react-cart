@@ -37,7 +37,14 @@ class Container extends Component {
             />
           ))}
         </div>
-        <div className="total-price">Total price = {this.state.totalPrice}</div>
+
+        {this.state.totalPrice === 0 ? (
+          "You have no items in the cart"
+        ) : (
+          <div className="total-price">
+            Total price = {this.state.totalPrice}
+          </div>
+        )}
       </div>
     );
   }
