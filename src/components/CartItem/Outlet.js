@@ -38,7 +38,6 @@ class CartItem extends Component {
     this.setState({
       quantity: zero
     });
-    console.log(zero);
   }
 
   componentDidMount() {
