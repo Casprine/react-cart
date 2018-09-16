@@ -51,7 +51,7 @@ class Container extends Component {
     };
     // Binders
     this.increaseQuantity = this.increaseQuantity.bind(this);
-    // this.decrease = this.decrease.bind(this);
+    this.decreaseQuantity = this.decreaseQuantity.bind(this);
     // this.remove = this.remove.bind(this);
   }
 
@@ -70,7 +70,36 @@ class Container extends Component {
       quantity: newQuantity,
       itemTotalPrice: newitemTotalPrice
     };
+    // console.log(JSON.stringify(newItem, null, 2));
 
+    // New updated Products
+    const updatedProducts = [
+      ...products.slice(0, id),
+      ...newItem,
+      ...products.slice(id++, product.length)
+    ];
+
+    // Set new state
+    this.setState({
+      products: updatedProducts
+    });
+  }
+
+  decreaseQuantity({ id }) {
+    const { products } = this.state;
+    const index = this.state.products.findIndex(product => product.id === id);
+    const product = this.state.products[index];
+    const newQuantity = --product.quantity;
+    const newitemTotalPrice = newQuantity * product.price;
+
+    const newItem = {
+      id: product.id,
+      name: product.name,
+      img: product.img,
+      price: product.price,
+      quantity: newQuantity,
+      itemTotalPrice: newitemTotalPrice
+    };
     // console.log(JSON.stringify(newItem, null, 2));
 
     // New updated Products
@@ -93,6 +122,7 @@ class Container extends Component {
         <CartContainer
           cartItems={this.state.products}
           increaseQuantity={this.increaseQuantity}
+          decreaseQuantity={this.decreaseQuantity}
         />
         <CheckoutButton content="Checkout" totalPrice="120" />
       </div>

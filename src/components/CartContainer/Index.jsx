@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import CartItem from "../CartItem/Index";
 
-const CartContainer = ({ cartItems, increaseQuantity }) => {
+const CartContainer = ({ cartItems, increaseQuantity, decreaseQuantity }) => {
   return (
     <Fragment>
       {cartItems.map(item => (
@@ -9,6 +9,7 @@ const CartContainer = ({ cartItems, increaseQuantity }) => {
           product={item}
           key={item.id}
           increaseQuantity={increaseQuantity}
+          decreaseQuantity={decreaseQuantity}
         />
       ))}
     </Fragment>
