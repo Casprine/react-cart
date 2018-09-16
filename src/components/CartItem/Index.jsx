@@ -17,7 +17,7 @@ const Cart = ({ product, increaseQuantity }) => {
             +
           </button>
         </div>
-        <div className="price">$ {product.itemTotal}</div>
+        <div className="price">$ {product.itemTotalPrice}</div>
         <button className="remove">X</button>
       </div>
     </Fragment>

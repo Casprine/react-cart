@@ -18,7 +18,7 @@ class Container extends Component {
             "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/emojipedia/132/mango_1f96d.png",
           price: 3,
           quantity: 1,
-          itemTotal: 0
+          itemTotalPrice: 3
         },
         {
           id: 2,
@@ -27,7 +27,7 @@ class Container extends Component {
             "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/129/tangerine_1f34a.png",
           price: 6,
           quantity: 1,
-          itemTotal: 0
+          itemTotalPrice: 6
         },
         {
           id: 3,
@@ -36,7 +36,7 @@ class Container extends Component {
             " https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/129/cut-of-meat_1f969.png",
           price: 6,
           quantity: 1,
-          itemTotal: 0
+          itemTotalPrice: 6
         },
         {
           id: 4,
@@ -45,7 +45,7 @@ class Container extends Component {
             "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/facebook/65/bread_1f35e.png",
           price: 8,
           quantity: 1,
-          itemTotal: 0
+          itemTotalPrice: 8
         }
       ]
     };
@@ -59,10 +59,8 @@ class Container extends Component {
     const { products } = this.state;
     const index = this.state.products.findIndex(product => product.id === id);
     const product = this.state.products[index];
-    const newQuantity = product.quantity++;
-    const newItemTotal = newQuantity * product.price;
-
-    console.log(newItemTotal);
+    const newQuantity = ++product.quantity;
+    const newitemTotalPrice = newQuantity * product.price;
 
     const newItem = {
       id: product.id,
@@ -70,10 +68,10 @@ class Container extends Component {
       img: product.img,
       price: product.price,
       quantity: newQuantity,
-      itemTotal: newItemTotal
+      itemTotalPrice: newitemTotalPrice
     };
 
-    console.log(newItem);
+    // console.log(JSON.stringify(newItem, null, 2));
 
     // New updated Products
     const updatedProducts = [
