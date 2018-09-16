@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import "./style.css";
 
-const Cart = ({ product, increaseQuantity, decreaseQuantity }) => {
+const Cart = ({ product, increaseQuantity, decreaseQuantity, removeItem }) => {
   return (
     <Fragment>
       {product.quantity == "0" ? (
@@ -23,7 +23,9 @@ const Cart = ({ product, increaseQuantity, decreaseQuantity }) => {
             </button>
           </div>
           <div className="price">$ {product.itemTotalPrice}</div>
-          <button className="remove">X</button>
+          <button className="remove" onClick={() => removeItem(product)}>
+            X
+          </button>
         </div>
       )}
     </Fragment>

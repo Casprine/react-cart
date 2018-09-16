@@ -52,9 +52,9 @@ class Container extends Component {
     // Binders
     this.increaseQuantity = this.increaseQuantity.bind(this);
     this.decreaseQuantity = this.decreaseQuantity.bind(this);
-    // this.remove = this.remove.bind(this);
+    this.removeItem = this.removeItem.bind(this);
   }
-
+  // Increase quantity , itemTotalPrice and update state
   increaseQuantity({ id }) {
     const { products } = this.state;
     const index = this.state.products.findIndex(product => product.id === id);
@@ -70,7 +70,6 @@ class Container extends Component {
       quantity: newQuantity,
       itemTotalPrice: newitemTotalPrice
     };
-    // console.log(JSON.stringify(newItem, null, 2));
 
     // New updated Products
     const updatedProducts = [
@@ -78,6 +77,8 @@ class Container extends Component {
       ...newItem,
       ...products.slice(id++, product.length)
     ];
+
+    console.log(updatedProducts);
 
     // Set new state
     this.setState({
@@ -108,6 +109,38 @@ class Container extends Component {
       ...newItem,
       ...products.slice(id++, product.length)
     ];
+    console.log(updatedProducts);
+
+    // Set new state
+    this.setState({
+      products: updatedProducts
+    });
+  }
+
+  // Remove Item
+  removeItem({ id }) {
+    const { products } = this.state;
+    const index = this.state.products.findIndex(product => product.id === id);
+    const product = this.state.products[index];
+    const newQuantity = 0;
+
+    const newItem = {
+      id: product.id,
+      name: product.name,
+      img: product.img,
+      price: product.price,
+      quantity: newQuantity,
+      itemTotalPrice: product.itemTotalPrice
+    };
+    // console.log(JSON.stringify(newItem, null, 2));
+
+    // New updated Products
+    const updatedProducts = [
+      ...products.slice(0, id),
+      ...newItem,
+      ...products.slice(id++, product.length)
+    ];
+    console.log(updatedProducts);
 
     // Set new state
     this.setState({
@@ -123,6 +156,7 @@ class Container extends Component {
           cartItems={this.state.products}
           increaseQuantity={this.increaseQuantity}
           decreaseQuantity={this.decreaseQuantity}
+          removeItem={this.removeItem}
         />
         <CheckoutButton content="Checkout" totalPrice="120" />
       </div>
