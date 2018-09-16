@@ -9,7 +9,6 @@ class Container extends Component {
     return (
       <div className="container">
         <Header />
-        Hello world
       </div>
     );
   }
