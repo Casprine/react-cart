@@ -1,10 +1,7 @@
 import React, { Fragment } from "react";
-import Button from "../Shared/Button";
 import "./style.css";
 
 const Cart = data => {
-  console.log(data);
-
   return (
     <Fragment>
       <div className="cart-item">
@@ -14,13 +11,19 @@ const Cart = data => {
           <div className="item-decs">$ {data.product.price}</div>
         </div>
         <div className="counters">
-          <Button className="down" onClick={data.decrease} content="-" />
-          <div className="amount"> {data.quantity} </div>
-          <Button className="up" onClick={data.increase} content="+" />
+          <button className="down" onClick={this.decrease}>
+            -
+          </button>
+          <div className="amount"> {data.product.quantity || "1"} </div>
+          <button className="up" onClick={this.increase}>
+            +
+          </button>
         </div>
-        <div className="price">$ {data.itemTotal}</div>
-        <div className="total">{data.total}</div>
-        <Button className="close" onClick={data.remove} content="x" />
+        <div className="price">$ {data.product.itemTotal || "1"}</div>
+        <div className="total">{data.product.total || "10"}</div>
+        <button className="remove" onClick={this.remove}>
+          X
+        </button>
       </div>
     </Fragment>
   );

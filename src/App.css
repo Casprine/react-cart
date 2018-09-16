@@ -15,7 +15,7 @@
 }
 
 button {
-  cursor: pointer;
+  cursor: pointer !important;
   border: 0;
   color: white;
   outline: none;

@@ -9,7 +9,7 @@ const Header = () => {
     <nav className="header">
       <Button content="X" classname="close" />
       <p className="heading">Product Page</p>
-      <Button content="M cart" classname="link" />
+      <Button content="My cart" classname="link" />
     </nav>
   );
 };

@@ -32,7 +32,8 @@
   background: transparent;
   color: black;
 }
-.close {
+
+.remove {
   background: #5e8b6f;
   border-radius: 50%;
   margin-left: 20px;
