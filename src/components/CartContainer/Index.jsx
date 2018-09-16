@@ -6,7 +6,7 @@ const CartContainer = cart => {
   return (
     <Fragment>
       {cartItems.map(item => (
-        <CartItem product={item} />
+        <CartItem product={item} key={item.id} />
       ))}
     </Fragment>
   );
