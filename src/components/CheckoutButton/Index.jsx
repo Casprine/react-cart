@@ -5,8 +5,8 @@ const CheckoutButton = ({ content, totalPrice }) => {
   return (
     <Fragment>
       <button class="checkoutButton">
-        <span> {content} </span>
-        <span class="totalPrice" > ${totalPrice} </span>
+        <span class="content"> {content} </span>
+        <span class="totalPrice"> ${totalPrice} </span>
       </button>
     </Fragment>
   );

@@ -6,9 +6,8 @@
   padding: 10px;
 }
 
-.close-Button,
+.close,
 .link,
 p {
   background: transparent;
-  outline: 1px solid red;
 }

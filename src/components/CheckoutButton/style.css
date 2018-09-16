@@ -3,10 +3,17 @@
   background: green;
   margin-top: auto;
   height: 40px;
+  text-align: center;
 }
 
 .totalPrice {
   background: rgb(0, 77, 0);
   padding: 2px 10px;
   border-radius: 2px;
+  float: right;
+  margin-right: 10px;
+}
+
+.content {
+  font-size: 15px;
 }
