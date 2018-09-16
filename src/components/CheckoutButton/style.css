@@ -1,0 +1,12 @@
+.checkoutButton {
+  width: 100%;
+  background: green;
+  margin-top: auto;
+  height: 40px;
+}
+
+.totalPrice {
+  background: rgb(0, 77, 0);
+  padding: 2px 10px;
+  border-radius: 2px;
+}
