@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Header from "../Header/Index";
+import
 import CheckoutButton from "../CheckoutButton/Index";
 
 // Import styling
