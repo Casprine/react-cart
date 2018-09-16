@@ -2,26 +2,26 @@ import React, { Fragment } from "react";
 import Button from "../Shared/Button";
 import "./style.css";
 
-const CartItem = props => {
+const Cart = product => {
   return (
     <Fragment>
       <div className="cart-item">
-        <img src={props.img} alt="" className="cart-img" />
+        <img src={product.img} alt="" className="cart-img" />
         <div className="item-details">
-          <div className="item-name">{props.name}</div>
-          <div className="item-decs">$ {props.price}</div>
+          <div className="item-name">{product.name}</div>
+          <div className="item-decs">$ {product.price}</div>
         </div>
         <div className="counters">
-          <Button className="down" onClick={props.decrease} content="-" />
-          <div className="amount"> {props.quantity} </div>
-          <Button className="up" onClick={props.increase} content="+" />
+          <Button className="down" onClick={product.decrease} content="-" />
+          <div className="amount"> {product.quantity} </div>
+          <Button className="up" onClick={product.increase} content="+" />
         </div>
-        <div className="price">$ {props.itemTotal}</div>
-        <div className="total">{props.total}</div>
-        <Button className="close" onClick={props.remove} content="x" />
+        <div className="price">$ {product.itemTotal}</div>
+        <div className="total">{product.total}</div>
+        <Button className="close" onClick={product.remove} content="x" />
       </div>
     </Fragment>
   );
 };
 
-export default CartItem;
+export default Cart;
