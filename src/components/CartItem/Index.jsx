@@ -11,19 +11,13 @@ const Cart = data => {
           <div className="item-decs">$ {data.product.price}</div>
         </div>
         <div className="counters">
-          <button className="down" onClick={this.decrease}>
-            -
-          </button>
-          <div className="amount"> {data.product.quantity || "1"} </div>
-          <button className="up" onClick={this.increase}>
-            +
-          </button>
+          <button className="down">-</button>
+          <div className="amount"> {data.product.quantity} </div>
+          <button className="up">+</button>
         </div>
-        <div className="price">$ {data.product.itemTotal || "1"}</div>
-        <div className="total">{data.product.total || "10"}</div>
-        <button className="remove" onClick={this.remove}>
-          X
-        </button>
+        <div className="price">$ {data.product.itemTotal}</div>
+        {/* <div className="total">{data.product.total || "10"}</div> */}
+        <button className="remove">X</button>
       </div>
     </Fragment>
   );
