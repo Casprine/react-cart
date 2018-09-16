@@ -4,9 +4,9 @@ import "./style.css";
 const CheckoutButton = ({ content, totalPrice }) => {
   return (
     <Fragment>
-      <button class="checkoutButton">
-        <span class="content"> {content} </span>
-        <span class="totalPrice"> ${totalPrice} </span>
+      <button className="checkoutButton">
+        <span className="content"> {content} </span>
+        <span className="totalPrice"> ${totalPrice} </span>
       </button>
     </Fragment>
   );

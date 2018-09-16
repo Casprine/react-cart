@@ -4,7 +4,7 @@ import "./style.css";
 const Cart = ({ product, increaseQuantity, decreaseQuantity, removeItem }) => {
   return (
     <Fragment>
-      {product.quantity == "0" ? (
+      {product.quantity < 1 ? (
         ""
       ) : (
         <div className="cart-item">

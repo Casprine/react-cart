@@ -4,7 +4,7 @@ import "./style.css";
 const Button = ({ content, classname, handler }) => {
   return (
     <Fragment>
-      <button class={classname} onClick={handler}>
+      <button className={classname} onClick={handler}>
         {" "}
         {content}{" "}
       </button>
