@@ -50,16 +50,34 @@ class Container extends Component {
       ]
     };
     // Binders
-    this.increase = this.increase.bind(this);
-    this.decrease = this.decrease.bind(this);
-    this.remove = this.remove.bind(this);
+    this.increaseQuantity = this.increaseQuantity.bind(this);
+    // this.decrease = this.decrease.bind(this);
+    // this.remove = this.remove.bind(this);
+  }
+
+  increaseQuantity({ id }) {
+    const { products } = this.state;
+    const index = this.state.products.findIndex(product => product.id === id);
+    const product = this.state.products[index];
+    const newItem = {
+      ...product,
+      ...product.quantity++
+    };
+    // console.log(products);
+    // console.log(newItem);
+    // const updateProducts = [];
+
+    // console.log(updateProducts);
   }
 
   render() {
     return (
       <div className="container">
         <Header />
-        <CartContainer cart={this.state.products} />
+        <CartContainer
+          cartItems={this.state.products}
+          increaseQuantity={this.increaseQuantity}
+        />
         <CheckoutButton content="Checkout" totalPrice="120" />
       </div>
     );
