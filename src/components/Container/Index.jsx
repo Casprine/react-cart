@@ -47,21 +47,31 @@ class Container extends Component {
           quantity: 1,
           itemTotalPrice: 8
         }
-      ]
+      ],
+      totalPrice: 0
     };
     // Binders
     this.increaseQuantity = this.increaseQuantity.bind(this);
     this.decreaseQuantity = this.decreaseQuantity.bind(this);
     this.removeItem = this.removeItem.bind(this);
+    this.computeTotalPrice = this.computeTotalPrice.bind(this);
+  }
+
+  computeTotalPrice() {
+    let total = 0;
+    this.state.products.forEach(element => {
+      total += parseInt(element.itemTotalPrice);
+    });
+    return total;
   }
   // Increase quantity , itemTotalPrice and update state
   increaseQuantity({ id }) {
     const { products } = this.state;
     const index = this.state.products.findIndex(product => product.id === id);
     const product = this.state.products[index];
-    const newQuantity = ++product.quantity;
+    const newQuantity = product.quantity + 1;
     const newitemTotalPrice = newQuantity * product.price;
-
+    const newindex = index + 1;
     const newItem = {
       id: product.id,
       name: product.name,
@@ -71,24 +81,35 @@ class Container extends Component {
       itemTotalPrice: newitemTotalPrice
     };
 
+    // console.log(product, "product item");
+    // console.log(newItem, "new item");
+    // console.log(index, `ww`);
+
     // New updated Products
     const updatedProducts = [
-      ...products.slice(0, id),
-      ...newItem,
-      ...products.slice(id++, product.length)
+      ...products.slice(0, index),
+      newItem,
+      ...products.slice(newindex, product.length)
     ];
+    // console.log(updatedProducts);
 
     // Set new state
-    this.setState({
-      products: updatedProducts
-    });
+    this.setState(
+      {
+        products: updatedProducts
+      },
+      () => {
+        const totalPrice = this.computeTotalPrice();
+        this.setState({ totalPrice });
+      }
+    );
   }
 
   decreaseQuantity({ id }) {
     const { products } = this.state;
     const index = this.state.products.findIndex(product => product.id === id);
     const product = this.state.products[index];
-    const newQuantity = --product.quantity;
+    const newQuantity = product.quantity - 1;
     const newitemTotalPrice = newQuantity * product.price;
 
     const newItem = {
@@ -99,8 +120,6 @@ class Container extends Component {
       quantity: newQuantity,
       itemTotalPrice: newitemTotalPrice
     };
-    // console.log(JSON.stringify(newItem, null, 2));
-
     // New updated Products
     const updatedProducts = [
       ...products.slice(0, id),
@@ -142,7 +161,15 @@ class Container extends Component {
     });
   }
 
+  componentDidMount() {
+    const totalPrice = this.computeTotalPrice();
+    console.log(totalPrice);
+    this.setState({ totalPrice });
+  }
+
   render() {
+    let { totalPrice } = this.state;
+
     return (
       <div className="container">
         <Header />
@@ -152,7 +179,7 @@ class Container extends Component {
           decreaseQuantity={this.decreaseQuantity}
           removeItem={this.removeItem}
         />
-        <CheckoutButton content="Checkout" totalPrice="120" />
+        <CheckoutButton content="Checkout" totalPrice={totalPrice} />
       </div>
     );
   }

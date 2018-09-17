@@ -34,6 +34,7 @@
   background: transparent;
   color: black;
   outline: 1px solid red;
+  cursor: pointer;
 }
 
 .remove {
@@ -43,5 +44,6 @@
   width: 20px;
   height: 20px;
   font-size: 12px;
+  cursor: pointer;
   outline: 1px solid red;
 }
