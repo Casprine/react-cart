@@ -57,13 +57,6 @@ class Container extends Component {
     this.computeTotalPrice = this.computeTotalPrice.bind(this);
   }
 
-  computeTotalPrice() {
-    let total = 0;
-    this.state.products.forEach(element => {
-      total += parseInt(element.itemTotalPrice);
-    });
-    return total;
-  }
   // Increase quantity , itemTotalPrice and update state
   increaseQuantity({ id }) {
     const { products } = this.state;
@@ -81,17 +74,12 @@ class Container extends Component {
       itemTotalPrice: newitemTotalPrice
     };
 
-    // console.log(product, "product item");
-    // console.log(newItem, "new item");
-    // console.log(index, `ww`);
-
     // New updated Products
     const updatedProducts = [
       ...products.slice(0, index),
       newItem,
       ...products.slice(newindex, product.length)
     ];
-    // console.log(updatedProducts);
 
     // Set new state
     this.setState(
@@ -111,6 +99,7 @@ class Container extends Component {
     const product = this.state.products[index];
     const newQuantity = product.quantity - 1;
     const newitemTotalPrice = newQuantity * product.price;
+    const newindex = index + 1;
 
     const newItem = {
       id: product.id,
@@ -122,15 +111,21 @@ class Container extends Component {
     };
     // New updated Products
     const updatedProducts = [
-      ...products.slice(0, id),
+      ...products.slice(0, index),
       ...newItem,
-      ...products.slice(id++, product.length)
+      ...products.slice(newindex, product.length)
     ];
 
     // Set new state
-    this.setState({
-      products: updatedProducts
-    });
+    this.setState(
+      {
+        products: updatedProducts
+      },
+      () => {
+        const totalPrice = this.computeTotalPrice();
+        this.setState({ totalPrice });
+      }
+    );
   }
 
   // Remove Item
@@ -161,9 +156,16 @@ class Container extends Component {
     });
   }
 
+  computeTotalPrice() {
+    let total = 0;
+    this.state.products.forEach(element => {
+      total += parseInt(element.itemTotalPrice, 10);
+    });
+    return total;
+  }
+
   componentDidMount() {
     const totalPrice = this.computeTotalPrice();
-    console.log(totalPrice);
     this.setState({ totalPrice });
   }
 
