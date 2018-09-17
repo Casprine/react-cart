@@ -24,6 +24,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  outline: 1px solid red;
+  margin: 0px 5px;
 }
 
 .up,
@@ -31,6 +33,7 @@
   margin: 0 5px;
   background: transparent;
   color: black;
+  outline: 1px solid red;
 }
 
 .remove {
@@ -40,4 +43,5 @@
   width: 20px;
   height: 20px;
   font-size: 12px;
+  outline: 1px solid red;
 }
