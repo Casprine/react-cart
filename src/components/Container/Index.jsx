@@ -54,7 +54,7 @@ class Container extends Component {
     this.increaseQuantity = this.increaseQuantity.bind(this);
     this.decreaseQuantity = this.decreaseQuantity.bind(this);
     this.removeItem = this.removeItem.bind(this);
-    this.computeTotalPrice = this.computeTotalPrice.bind(this);
+    // this.computeTotalPrice = this.computeTotalPrice.bind(this);
   }
 
   // Increase quantity , itemTotalPrice and update state
@@ -82,17 +82,12 @@ class Container extends Component {
     ];
 
     // Set new state
-    this.setState(
-      {
-        products: updatedProducts
-      },
-      () => {
-        const totalPrice = this.computeTotalPrice();
-        this.setState({ totalPrice });
-      }
-    );
+    this.setState({
+      products: updatedProducts
+    });
   }
 
+  // Decrease quantity , itemTotalPrice and update state
   decreaseQuantity({ id }) {
     const { products } = this.state;
     const index = this.state.products.findIndex(product => product.id === id);
@@ -100,7 +95,6 @@ class Container extends Component {
     const newQuantity = product.quantity - 1;
     const newitemTotalPrice = newQuantity * product.price;
     const newindex = index + 1;
-
     const newItem = {
       id: product.id,
       name: product.name,
@@ -109,23 +103,22 @@ class Container extends Component {
       quantity: newQuantity,
       itemTotalPrice: newitemTotalPrice
     };
+
+    console.log(newItem, "remove");
+
     // New updated Products
     const updatedProducts = [
       ...products.slice(0, index),
-      ...newItem,
+      newItem,
       ...products.slice(newindex, product.length)
     ];
 
+    console.log(updatedProducts);
+
     // Set new state
-    this.setState(
-      {
-        products: updatedProducts
-      },
-      () => {
-        const totalPrice = this.computeTotalPrice();
-        this.setState({ totalPrice });
-      }
-    );
+    this.setState({
+      products: updatedProducts
+    });
   }
 
   // Remove Item
@@ -156,18 +149,24 @@ class Container extends Component {
     });
   }
 
-  computeTotalPrice() {
-    let total = 0;
-    this.state.products.forEach(element => {
-      total += parseInt(element.itemTotalPrice, 10);
-    });
-    return total;
-  }
+  // Calculate totalPrice
+  // computeTotalPrice() {
+  //   let total = [];
+  //   // this.state.products.forEach(element => {
+  //   //   total += parseInt(element.itemTotalPrice, 10);
+  //   // });
+  //   // return total;
+  //   this.state.products
+  //     .map(product => {
+  //       console.log(total.push(product.itemTotalPrice));
+  //     })
+  //     .reduce((prev, next) => prev + next);
+  // }
 
-  componentDidMount() {
-    const totalPrice = this.computeTotalPrice();
-    this.setState({ totalPrice });
-  }
+  // componentDidMount() {
+  //   const totalPrice = this.computeTotalPrice();
+  //   this.setState({ totalPrice });
+  // }
 
   render() {
     let { totalPrice } = this.state;
