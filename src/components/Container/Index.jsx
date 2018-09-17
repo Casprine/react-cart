@@ -73,10 +73,12 @@ class Container extends Component {
 
     // New updated Products
     const updatedProducts = [
-      ...products.slice(0, id),
+      ...products.slice(0, index),
       ...newItem,
       ...products.slice(id++, product.length)
     ];
+
+    console.log(updatedProducts);
 
     // Set new state
     this.setState({
@@ -103,7 +105,7 @@ class Container extends Component {
 
     // New updated Products
     const updatedProducts = [
-      ...products.slice(0, id),
+      ...products.slice(0, index),
       ...newItem,
       ...products.slice(id++, product.length)
     ];
@@ -119,19 +121,20 @@ class Container extends Component {
     const { products } = this.state;
     const index = this.state.products.findIndex(product => product.id === id);
     const product = this.state.products[index];
+    const newQuantity = 0;
 
     const newItem = {
       id: product.id,
       name: product.name,
       img: product.img,
       price: product.price,
-      quantity: 0,
+      quantity: newQuantity,
       itemTotalPrice: product.itemTotalPrice
     };
 
     // New updated Products
     const updatedProducts = [
-      ...products.slice(0, id),
+      ...products.slice(0, index),
       ...newItem,
       ...products.slice(id++, product.length)
     ];
