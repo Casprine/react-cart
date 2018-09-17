@@ -24,7 +24,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  outline: 1px solid red;
   margin: 0px 5px;
 }
 
@@ -33,7 +32,6 @@
   margin: 0 5px;
   background: transparent;
   color: black;
-  outline: 1px solid red;
   cursor: pointer;
 }
 
@@ -45,5 +43,4 @@
   height: 20px;
   font-size: 12px;
   cursor: pointer;
-  outline: 1px solid red;
 }
