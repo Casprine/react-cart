@@ -6,7 +6,7 @@ import CheckoutButton from "../CheckoutButton/Index";
 // Import styling
 import "./style.css";
 
-class Container extends Component {
+class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -195,4 +195,4 @@ class Container extends Component {
     );
   }
 }
-export default Container;
+export default Cart;
